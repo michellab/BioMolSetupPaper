@@ -1,4 +1,4 @@
-#<center> BioMolSetupPaper</center>
+# BioMolSetupPaper
 
 ## Goals
 * Produce a brief checklist of most critical and most overlooked items that practitioners can follow and potentially reviewers can use.
@@ -15,4 +15,4 @@
 
 
 ### Online resources:
-Shared google document with brainstorming notes and draft outline can be found [here][https://docs.google.com/document/d/19cyJk_B80Pd1V1l7g0RGfR0-LNTfW5ElI0MM0LPOWK8/edit?ts=599ee322]. 
+Shared google document with brainstorming notes and draft outline: (https://docs.google.com/document/d/19cyJk_B80Pd1V1l7g0RGfR0-LNTfW5ElI0MM0LPOWK8/edit?ts=599ee322). 
