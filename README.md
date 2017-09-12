@@ -19,7 +19,7 @@
 - John Chodera
 - David Mobley
 - Antonia Mey
-- Julie Michel
+- Julien Michel
 (currently in alphabetical order)
 
 ## List of Contributors
