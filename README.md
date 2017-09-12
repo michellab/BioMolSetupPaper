@@ -15,6 +15,13 @@
 
 ## List of Authors
 
+- Rommie Amaro
+- John Chodera
+- David Mobley
+- Antonia Mey
+- Julie Michel
+(currently in alphabetical order)
+
 ## List of Contributors
 (list every non-author who contributes with their contributions)
 
