@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LIVECOMS ARTICLE TEMPLATE
+%%% ADAPTED FROM ELIFE ARTICLE TEMPLATE (8/10/2017)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PREAMBLE 
+\documentclass[9pt]{livecoms}
+% Use the 'onehalfspacing' option for 1.5 line spacing
+% Use the 'doublespacing' option for 2.0 line spacing
+% use the 'lineno' option for adding line numbers. 
+% Please note that these options may affect formatting.
+
+\usepackage{lipsum} % Required to insert dummy text
+\usepackage[version=4]{mhchem} 
+\usepackage{siunitx}
+\DeclareSIUnit\Molar{M}
+\newcommand{\versionnumber}{0.0.1}  % you should update the minor version number in preprints and major version number of submissions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Best practices for biomolecular simulation setup : v\versionnumber}
+
+\author[1*]{Rommie E. Amaro}
+\author[2*]{John D. Chodera}
+\author[3*]{David L. Mobley}
+\author[4*]{Antonia Mey}
+\author[4*]{Julien Michel}
+\affil[1]{Institution 1}
+\affil[2]{Institution 2}
+\affil[3]{Departments of Pharmaceutical Sciences and Chemistry, University of California, Irvine}
+\affil[4]{Institution 4}
+
+\corr{email1@example.com}{REA}  % Correspondence emails.  FMS and FS are the appropriate authors initials. 
+\corr{john.chodera@choderalab.org}{JDC}
+\corr{dmobley@mobleylab.org}{DLM}
+\corr{email1@example.com}{AM}
+\corr{email1@example.com}{JM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Please provide an abstract of no more than 250 words. Your abstract should explain the main contributions of your article, and should not contain any material that is not included in the main text.
+\end{abstract}
+
+\section{Goals}
+
+Produce a brief checklist of most critical and most overlooked items that practitioners can follow and potentially reviewers can use.
+Highlight issues where further study (or references we don?t know about yet) are needed to clarify what should be done; solicit input from the community on how best to handle issues.
+Guideline on how to report the checklist addressed items in a publication: Note that typical methods sections should provide the information in this checklist. (How to write a methods section by John Chodera: http://klogw.org/2016/07/28/how-to-write-a-methods-section/).
+
+We are not trying to enforce; we are trying to inform.
+
+\section{Scope}
+
+
+\textbf{Relatively simple biomolecular simulations of soluble proteins that may include small molecule ligands: }
+May not be able to include nucleic acid recommendations initially because of lack of expertise; Toni can potentially cover lipids, but it may be best to have a separate membrane protein doc that follows this.
+Eventually to include cofactors as part of the consideration
+
+\textbf{Does NOT include: }
+Generation of parameters, such as for nonstandard nonstandard residues (as opposed to standard nonstandard residues where literature and/or library parameters may already be available), or for complicated lipids or cofactors? AND these will be coupled to force field choice to some extent.
+Simulation protocol such as minimization, cutoffs, etc. 
+
+\section{Checklist}
+
+\subsection{ Step 0: Know what you want to simulate }
+
+\subsection{Protein} 
+
+\subsection{Ligands}
+
+\subsection{Counterions/water}
+
+\section{Other things to think about that didn't make the checklist}
+
+
+
+\section{Detailed explanation of checklist items}
+
+
+\section{Acknowledgments}
+
+
+
+\bibliography{biomolsetup}
+
+
+\end{document}
