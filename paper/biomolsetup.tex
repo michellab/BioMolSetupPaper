@@ -44,7 +44,15 @@
 \maketitle
 
 \begin{abstract}
-Please provide an abstract of no more than 250 words. Your abstract should explain the main contributions of your article, and should not contain any material that is not included in the main text.
+Simulations of biomolecular systems are complex and often demanding but can provide great insights and valuable quantitative predictions. 
+However, these simulations require considerable human expertise to set up well, and key aspects of system preparation and setup are often overlooked for a variety of reasons.
+Thus, simulations of the ``same'' biomolecular system prepared by different individuals or different software tools may yield substantially different results due to different choices made in system preparation, such as different handling of crystallographic waters, different treatment of missing residues or loops in a protein, or different choices for a ligand or receptor's protonation state. 
+In some cases, human error can also play a role, with a user perhaps forgetting to check for disulfide bonds. 
+Here, we identify the issues we believe are most important for users and/or software tools to consider when preparing biomolecular systems for simulation and present a checklist for users to follow to ensure they have handled the most crucial or troublesome aspects of system preparation, with recommendations for how to handle each step in the process when best practices have been established by the literature.
+We also present a detailed explanation of the items in our checklist, including why we make the recommendations we do.
+Additionally, because a useful checklist must necessarily be brief, we provide a discussion of other important factors to consider which did not make our major checklist. 
+We believe this work provides a starting point to help reduce the number of simulations run which are flawed due to setup failures, and we hope the community will contribute to updating and improving this document to that end.
+
 \end{abstract}
 
 \section{Goals}
@@ -153,6 +161,19 @@ Determine electrostatic potential around molecule and place ions at minima (defa
 
 
 \section{Detailed explanation of checklist items}
+
+\subsection{}
+\subsection{Protein}
+
+% On protonation states:
+%Gianni de Fabritiis has done some nice work on this recently -- 10.1021/acs.jctc.7b00480
+%Oliver Beckstein has looked fairly extensively at using proPKA for protein prep -- see https://github.com/Becksteinlab/propkatraj
+%Marilyn Gunner has extensively explored the assignment of protonation states on both proteins and now ligands using MCCE2
+
+
+\subsection{Ligands}
+\subsection{Counterions/water}
+
 
 
 \section{Acknowledgments}
