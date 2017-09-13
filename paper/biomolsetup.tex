@@ -70,13 +70,85 @@ Simulation protocol such as minimization, cutoffs, etc.
 
 \subsection{ Step 0: Know what you want to simulate }
 
+% To include a mini checklist of some kind
+
+% Also include brief mention of ionic conditions
+
 \subsection{Protein} 
+
+\begin{enumerate}
+\item Sequence of the protein -- is it the protein you wanted to simulate? (Assays, crystal structure, intended) And what conditions do you want to simulate (are they the structural conditions)? Oligomeric state (how many chains do we need to simulate?) (Chodera/Amaro)
+\item Structure selection (Mey) 
+    \begin{itemize}
+    \item  X-ray structural data
+    \item Dealing with NMR structural ensembles
+    \item Other sources of structural data: e.g. cryo-EM
+    \end{itemize}
+\item Disulfide bonds depending on reducing/oxidizing environments (Amaro)
+\item Post-translational modifications (Chodera)
+\item Model in missing residues and loops (Chodera/Amaro tag-team)
+    \begin{itemize}
+    \item Schrodinger tools model in short loops, but truncate long loops with proton caps (?)
+    \item UCSF Modeller terrible for loops without care; Rosetta Model works well ? (JDC says)
+    \item (But Amaro reports success stories with Schrodinger tools if one knows when to use them and does not try to push the tool beyond the limit of reasonable application - eg loops < 10-12 residues, otherwise need templated homology models)
+    \end{itemize}
+\item Protonation states and tautomers: (Mobley to draft; maybe eventually rope in someone to comment on constant pH simulations -- Jordi Juarez in Michel group has expertise here)
+    \begin{itemize}
+    \item ProPKA - but see Beckstein ProPkaTraj (https://github.com/Becksteinlab/propkatraj)
+    \item MCCE
+    \item Early stages of constant pH (e.g. Case, McCammon, Roitberg, Shen, Roux, Chodera)
+    \end{itemize}
+\item Crystal waters (Amaro, Mey)
+\item Metal ions (JDC)
+
+
+\end{enumerate}
+
+
 
 \subsection{Ligands}
 
+\begin{enumerate}
+\item Select protonation state/tautomer (Chodera)
+\item Select the correct ligand binding mode (Greg Warren, Bob Tolbert, Mobley) % Electron density, ligand binding mode, etc. 
+    \begin{itemize}
+    \item Is this the right ligand?
+    \item Does the density support?
+    \item Is that only because of crystal contacts?
+    \item How do you put your new ligand in? (Get help from Amaro)
+    \item ...docking, shape overlay, etc
+    \item Run dynamics of ligands?
+    \end{itemize}
+\end{enumerate}
+
 \subsection{Counterions/water}
 
+\begin{enumerate}
+\item No counterions, minimal counterions, or physiological ionic strength? (Mobley)
+
+\end{enumerate}
+
 \section{Other things to think about that didn't make the checklist}
+
+Here, we focus on items which are also important part of system preparation, but which are less frequent causes of critical failures or are not as often or easily overlooked.
+
+\subsection{Proteins}
+
+Termini: Build them, or cap? Depends on length; if too long can contribute to timescales. Write some guidelines into how to know. %(Mey)
+
+\subsection{Ligands}
+
+Find/create parameters (Mobley) - mention but not totally in scope.
+
+Handle covalently bound cofactors/adducts: Not in our scope but mention that it is a research topic which uses special treatment; refer to how. (As distinct from ones which have parameters available). 
+
+\subsection{Counterions/water}
+(minor) Select simulation box size (Mey) -- important, but first thing to check in analysis.
+
+The selection of models not in our scope but will mention (Mobley), including: Water model; Ion model.
+
+(minor) Add solvent then ions, or ions then solvent? Pre-equilibrate ion-water mixture? (Amaro)
+Determine electrostatic potential around molecule and place ions at minima (default AMBER approach does this in solvent, replacing some solvent with ions)
 
 
 
