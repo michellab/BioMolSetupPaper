@@ -57,30 +57,43 @@ We believe this work provides a starting point to help reduce the number of simu
 
 \section{Goals}
 
-Produce a brief checklist of most critical and most overlooked items that practitioners can follow and potentially reviewers can use.
-Highlight issues where further study (or references we don?t know about yet) are needed to clarify what should be done; solicit input from the community on how best to handle issues.
-Guideline on how to report the checklist addressed items in a publication: Note that typical methods sections should provide the information in this checklist. (How to write a methods section by John Chodera: http://klogw.org/2016/07/28/how-to-write-a-methods-section/).
+This work focuses on providing a brief checklist of the most critical and most frequently overlooked items in the preparation of biomolecular simulations, so that that practitioners can follow this checklist, and reviewers can potentially use it in evaluating manuscripts and assessing whether method descriptions are complete. 
+We also focus on highlighting issues where further clarity may be needed, either via additional study, or from work of which we are unaware.
+Additionally, we value input from the community on how best to handle the issues raised, and others we may have overlooked, as an additional goal of this work is to develop a set of \emph{community} best practices.
+In addition to the provided checklist, we provide an explanation of why the checklist includes the items it does and why we make the recommendations we do, in order to further facilitate training and community input.
 
-We are not trying to enforce; we are trying to inform.
+This work can perhaps also be useful for authors who are writing papers in order to help determine what details to report in their Methods section -- specifically, such sections should at minimum address the details highlighted in this document. 
+%How to write a methods section by John Chodera: http://klogw.org/2016/07/28/how-to-write-a-methods-section/
+
+Our goal in this work is to \emph{inform} about what we believe are best practices for preparation in this area and provide an aid to authors and reviewers; we have no intention of providing a set of standards which should be \emph{enforced}. 
+Indeed, there may be good reasons from deviating from recommended practices in certain cases; in our view, authors should simply note any deviations and explain why they made the choices they did. 
 
 \section{Scope}
 
+Our focus in this work is on what is often the earliest stage of preparation of biomolecular simulations -- deciding what system to simulate and which molecules and atoms are in it in which positions. 
+We deliberately avoid the issue of assigning (and potentially developing) force field parameters, as this involves many additional complexities that warrant their own ``best practices'' document.
+We also, at least for now, focus on protein or protein-ligand systems, avoiding nucleic acids such as DNA or RNA as we lack the requisite expertise (though this work may be extended later to cover such cases). 
+Additionally, we avoid membrane proteins for similar reasons.
+Thus our overall focus is on preparation for \emph{relatively simple biomolecular simulations of soluble proteins that may include non-covalent small molecule ligands, and especially on the force field agnostic aspects of preparation.
+We expect to eventually include handling of cofactors, though this is not within our initial scope.
 
-\textbf{Relatively simple biomolecular simulations of soluble proteins that may include small molecule ligands: }
-May not be able to include nucleic acid recommendations initially because of lack of expertise; Toni can potentially cover lipids, but it may be best to have a separate membrane protein doc that follows this.
-Eventually to include cofactors as part of the consideration
-
-\textbf{Does NOT include: }
-Generation of parameters, such as for nonstandard nonstandard residues (as opposed to standard nonstandard residues where literature and/or library parameters may already be available), or for complicated lipids or cofactors? AND these will be coupled to force field choice to some extent.
-Simulation protocol such as minimization, cutoffs, etc. 
+Thus, our scope \emph{does not include} assignment of parameters from force field libraries, and especially generation of parameters (such as for unusual nonstandard residues where literature parameters may not be available, or for covalent cofactors, complex ligands or factors, etc.). 
+This is both because these may be research questions, and because the particular approaches applied will often be coupled to the choice of force field to a significant extent.
+Additionally, we do not include any aspects of choice of simulation protocol such as minimization, cutoffs, and other factors as, in our view, these all come significantly downstream of system preparation. 
 
 \section{Checklist}
 
 \subsection{ Step 0: Know what you want to simulate }
 
-% To include a mini checklist of some kind
+A key first step in setting up a biomolecular system is being sure you know what you intend to simulate and have planned the right simulation(s), including such aspects as:
+\begin{enumerate}
+\item What is the goal of your simulation(s)? Can you hope to achieve those goals with this simulation?
+\item What do you know (or expect) about the potential timescales in your system, and can you hope to capture those with this simulation?
+\item Will you be able to gather good enough statistics from this study, based on what you know about those timescales?
+\item What will be the costs of your simulation (computer time, storage, memory, wallclock, network bandwidth, data throughput) and can you afford those costs? 
+\item What are the experimental conditions (including salt conditions, buffers, cofactors, etc.)? Do you want to match those conditions in your simulation? If not, why not?
+\end{enumerate}
 
-% Also include brief mention of ionic conditions
 
 \subsection{Protein} 
 
@@ -162,7 +175,7 @@ Determine electrostatic potential around molecule and place ions at minima (defa
 
 \section{Detailed explanation of checklist items}
 
-\subsection{}
+\subsection{ Step 0: Know what you want to simulate }
 \subsection{Protein}
 
 % On protonation states:
