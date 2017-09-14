@@ -74,7 +74,7 @@ Our focus in this work is on what is often the earliest stage of preparation of 
 We deliberately avoid the issue of assigning (and potentially developing) force field parameters, as this involves many additional complexities that warrant their own ``best practices'' document.
 We also, at least for now, focus on protein or protein-ligand systems, avoiding nucleic acids such as DNA or RNA as we lack the requisite expertise (though this work may be extended later to cover such cases). 
 Additionally, we avoid membrane proteins for similar reasons.
-Thus our overall focus is on preparation for \emph{relatively simple biomolecular simulations of soluble proteins that may include non-covalent small molecule ligands, and especially on the force field agnostic aspects of preparation.
+Thus our overall focus is on preparation for \emph{relatively simple biomolecular simulations of soluble proteins that may include non-covalent small molecule ligands}, and especially on the force field agnostic aspects of preparation.
 We expect to eventually include handling of cofactors, though this is not within our initial scope.
 
 Thus, our scope \emph{does not include} assignment of parameters from force field libraries, and especially generation of parameters (such as for unusual nonstandard residues where literature parameters may not be available, or for covalent cofactors, complex ligands or factors, etc.). 
@@ -113,11 +113,12 @@ A key first step in setting up a biomolecular system is being sure you know what
     \item UCSF Modeller terrible for loops without care; Rosetta Model works well ? (JDC says)
     \item (But Amaro reports success stories with Schrodinger tools if one knows when to use them and does not try to push the tool beyond the limit of reasonable application - eg loops < 10-12 residues, otherwise need templated homology models)
     \end{itemize}
-\item Protonation states and tautomers: (Mobley to draft; maybe eventually rope in someone to comment on constant pH simulations -- Jordi Juarez in Michel group has expertise here)
+\item Assign protein protonation states/tautomers via a consistent, well-documented, and (ideally) reproducible procedure 
     \begin{itemize}
-    \item ProPKA - but see Beckstein ProPkaTraj (https://github.com/Becksteinlab/propkatraj)
-    \item MCCE
-    \item Early stages of constant pH (e.g. Case, McCammon, Roitberg, Shen, Roux, Chodera)
+    \item PROPKA may be a good automated tool [ref] though it can be sensitive to the specific snapshot chosen for analysis, so propkatraj (\url{https://github.com/Becksteinlab/propkatraj}) may be worth using to provide a more thorough analysis
+    \item Multi-Conformer Continuum Electrostatics (MCCE) is another well-established option [ref] 
+    \item Constant pH MD simulations may offer an alternative as they develop further [ref  Case, McCammon, Roitberg, Shen, Roux, Chodera]
+    \item Careful hand selection may be needed in some cases but must be carefully documented and is too onerous to be recommended as the only solution (that is, we recommend hand selection be applied only after applying an algorithmic approach)
     \end{itemize}
 \item Crystal waters (Amaro, Mey)
 \item Metal ions (JDC)
@@ -131,14 +132,15 @@ A key first step in setting up a biomolecular system is being sure you know what
 
 \begin{enumerate}
 \item Select protonation state/tautomer (Chodera)
-\item Select the correct ligand binding mode (Greg Warren, Bob Tolbert, Mobley) % Electron density, ligand binding mode, etc. 
+\item Select the correct ligand binding mode %(Greg Warren, Bob Tolbert, Mobley) % Electron density, ligand binding mode, etc. 
     \begin{itemize}
-    \item Is this the right ligand?
-    \item Does the density support?
-    \item Is that only because of crystal contacts?
-    \item How do you put your new ligand in? (Get help from Amaro)
-    \item ...docking, shape overlay, etc
-    \item Run dynamics of ligands?
+    \item Are you sure you have the right ligand?
+    \item If the starting point is crystallographic, does the electron density support its presence? 
+    \item Is it present only because of crystal contacts or packing issues?
+    \item If you are modeling the ligand in, how will you place it? %(Get help from Amaro)
+Will you use docking, shape overlays, knowledge of binding modes of similar ligands, or other factors?
+    \item If you have modeled it in, how will you determine whether this is the correct binding mode? Might other binding modes be possible? How would this affect your results?
+    \item Will you need to run simulations of the ligands to validate the putative binding mode?
     \end{itemize}
 \end{enumerate}
 
@@ -159,14 +161,20 @@ Termini: Build them, or cap? Depends on length; if too long can contribute to ti
 
 \subsection{Ligands}
 
-Find/create parameters (Mobley) - mention but not totally in scope.
+While simple proteins without covalent modifications or nonstandard residues can typically be handled by library force fields for biomolecular simulations, ligands will involve parameter assignment.
+As noted above, parameterization is not within the scope of this work, but it is important to note that there are roughly two categories of approaches for handling of ligand parameter assignment: 
+General-purpose small molecule force fields (e.g. GAFF, GAFF2, OPLS2, OPLS3, etc.) %does CHARMM belong here?
+which provide generic parameters that can easily be assigned to the vast majority of small organic molecules, possibly with a partial charge calculation required; and more advanced force fields which require parameter development for each new molecule to be considered (e.g. AMOEBA, ... ??). 
 
-Handle covalently bound cofactors/adducts: Not in our scope but mention that it is a research topic which uses special treatment; refer to how. (As distinct from ones which have parameters available). 
+Handling of covalently bound cofactors, adducts, and certain nonstandard residues (those without library parameters available) can be an even more complex issue than handling of ligand parameterization, often turning into a research topic requiring considerable care. 
 
 \subsection{Counterions/water}
 (minor) Select simulation box size (Mey) -- important, but first thing to check in analysis.
 
-The selection of models not in our scope but will mention (Mobley), including: Water model; Ion model.
+Ultimately, finalizing certain aspects of setup will require selection of water and ion models, which is often coupled (at least partially) to the choice of force field.
+The choice of these models is outside our scope, but is important to note. 
+Many different water models are available, with varying degrees of quality for pure solvent properties.
+The choice of water model is also coupled to the choice of model for ions -- for example, different water models can require different models for monatomic ions in order to prevent aggregation of ions [refs].
 
 (minor) Add solvent then ions, or ions then solvent? Pre-equilibrate ion-water mixture? (Amaro)
 Determine electrostatic potential around molecule and place ions at minima (default AMBER approach does this in solvent, replacing some solvent with ions)
@@ -185,8 +193,20 @@ Determine electrostatic potential around molecule and place ions at minima (defa
 
 
 \subsection{Ligands}
+
+%Electron density, ligand binding mode, etc. (Greg Warren, Bob Tolbert, Mobley)
+%Is this the right ligand?
+%Does the density support?
+%Is that only because of crystal contacts?
+%How do you put your new ligand in? (Get help from Amaro)
+%...docking, shape overlay, etc
+%Run dynamics of ligands?
+
+
 \subsection{Counterions/water}
 
+
+\section{Conclusions}
 
 
 \section{Acknowledgments}
