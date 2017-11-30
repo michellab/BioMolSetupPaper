@@ -38,6 +38,4 @@ Shared google document with brainstorming notes and draft outline: (https://docs
 ## List of Released Verisons:
 (none yet)
 
-## Changelog
-- August 2017: Created repository
-- 12 Sept. 2017: Reorganized repo, updated README, cleaned out unnecessary template files.
+
