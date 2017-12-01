@@ -32,6 +32,9 @@ You can read more about the concept of writing a paper in the same way one would
 If you have comments or suggestions, we welcome them! Please [submit them as issues](https://guides.github.com/features/issues/) to this GitHub repository so they can be recorded and given credit for the contribution.
 Specific changes can be proposed [via pull requests](https://help.github.com/articles/about-pull-requests/).
 
+**Writing sections using branches and pull requests**:   
+If you want to write a new section as an author. Create a branch for the new section forking from the latest v1.0 branch of the repository. When you are done with the section make a pull request in order to merge the branch back in to v1.0
+
 ## Online resources:
 Shared google document with brainstorming notes and draft outline: (https://docs.google.com/document/d/19cyJk_B80Pd1V1l7g0RGfR0-LNTfW5ElI0MM0LPOWK8/edit?ts=599ee322). 
 
